@@ -1,56 +1,37 @@
 <template>
   <v-app>
     <v-app-bar app color="primary" dark>
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-toolbar-title>Ambisoniczna mapa Trójmiasta</v-toolbar-title>
     </v-app-bar>
 
     <v-main>
-      <HelloWorld />
+      <v-navigation-drawer v-model="drawer" absolute width="30%">
+        <v-list>
+          <v-subheader>Lokalizacje</v-subheader>
+          <v-list-item-group>
+            <v-list-item v-for="(location, i) in locations" :key="i">
+              {{ location }}
+            </v-list-item>
+          </v-list-item-group>
+        </v-list>
+      </v-navigation-drawer>
+      <Map />
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
+import Map from "./components/Map";
 
 export default {
   name: "App",
-
-  components: {
-    HelloWorld
-  },
-
   data: () => ({
-    //
-  })
+    drawer: null,
+    locations: []
+  }),
+  components: {
+    Map
+  }
 };
 </script>
