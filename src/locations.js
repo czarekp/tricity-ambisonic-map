@@ -4,7 +4,7 @@ const locations = [
     places: [
       {
         name: "Orłowo - Promenada",
-        videoUrl: "https://www.youtube.com/watch?v=vMSAmFI9i08",
+        videoUrl: "https://www.youtube.com/embed/vMSAmFI9i08",
         description: `
           Promenada Królowej Marysieńki to nadmorski deptak w Gdyni-Orłowie ciągnący się od ulicy Przebendowskich do Orłowskiego mola. 
           Roztacza się stąd wspaniały widok na Zatokę Gdańską, Klif Orłowski, a podczas dobrej pogody można podziwiać Półwysep Helski.
@@ -16,7 +16,7 @@ const locations = [
       },
       {
         name: "Orłowo - Skwer Antoniego Suchanka",
-        videoUrl: "https://www.youtube.com/watch?v=CzChXgcIDbw",
+        videoUrl: "https://www.youtube.com/embed/CzChXgcIDbw",
         description: `
           Ławeczka Antoniego Suchanka znajduje się w Gdyni-Orłowie przy molo, na skwerze jego imienia. 
           Została odsłonięta 31 maja 2009. Jej autorem jest rzeźbiarz gdyński Zdzisław Koseda.
@@ -27,7 +27,7 @@ const locations = [
       },
       {
         name: "Orłowo - Plaża",
-        videoUrl: "https://www.youtube.com/watch?v=h7XRcJNtP1g",
+        videoUrl: "https://www.youtube.com/embed/h7XRcJNtP1g",
         description: `
           Plaża znana jest z ładnego widoku na Cypel Redłowski, znajduje się 15 min spacerem od dworca Gdynia Orłowo. 
           Na szerokości 100 metrów do końca sierpnia plaża jest strzeżona, szerokość plaży to 30 m. 
@@ -37,7 +37,7 @@ const locations = [
       },
       {
         name: "Orłowo - Molo",
-        videoUrl: "https://www.youtube.com/watch?v=gIeWFMgyFUM",
+        videoUrl: "https://www.youtube.com/embed/gIeWFMgyFUM",
         description: `
           Drewniane molo znajdujące się w nadmorskiej, południowej dzielnicy Gdyni.
           Nieopodal znajduje się Scena Letnia Teatru Miejskiego w Gdyni. 
@@ -47,7 +47,7 @@ const locations = [
       },
       {
         name: "Skwer Kościuszki",
-        videoUrl: "https://www.youtube.com/watch?v=y27v07CRaxM",
+        videoUrl: "https://www.youtube.com/embed/y27v07CRaxM",
         description: `
           Reprezentacyjna ulica Śródmieścia Gdyni stanowiąca wspólnie z ulicą 10 Lutego i aleją Jana Pawła II wizytówkę Gdyni.
           Przy Skwerze Kościuszki cumują Dar Pomorza oraz ORP Błyskawica. 
@@ -57,7 +57,7 @@ const locations = [
       },
       {
         name: "Bulwar Nadmorski",
-        videoUrl: "https://www.youtube.com/watch?v=G5xtX190bcE",
+        videoUrl: "https://www.youtube.com/embed/G5xtX190bcE",
         description: `
           Bulwar Nadmorski to najpopularniejszy w Gdyni trakt spacerowy. 
           Ma 1.5 km długości, jest częstym miejscem przechadzek i wycieczek rowerowych. 
@@ -67,7 +67,7 @@ const locations = [
       },
       {
         name: "Port Gdynia",
-        videoUrl: "https://www.youtube.com/watch?v=VWvx6ufz02A",
+        videoUrl: "https://www.youtube.com/embed/VWvx6ufz02A",
         description: `
           Handlowy port morski nad Zatoką Gdańską, położony na Pobrzeżu Kaszubskim. 
           Jest trzecim co do wielkości portem morskim w Polsce (po Gdańsku i Szczecinie).
@@ -83,7 +83,7 @@ const locations = [
     places: [
       {
         name: "Molo",
-        videoUrl: "https://www.youtube.com/watch?v=WXFOchbI0qg",
+        videoUrl: "https://www.youtube.com/embed/WXFOchbI0qg",
         description: `
           Molo to jeden z najpopularniejszych polskich obiektów rekreacyjno-imprezowych, wizytówka kurortu.
           Obiekt składa się z 2 części: drewnianej i lądowej.
@@ -94,7 +94,7 @@ const locations = [
       },
       {
         name: "Monciak",
-        videoUrl: "https://www.youtube.com/watch?v=B2SIt_aaxpE",
+        videoUrl: "https://www.youtube.com/embed/B2SIt_aaxpE",
         description: `
           Monciak, czyli prowadząca do mola ulica Bohaterów Monte Cassino, to najsłynniejszy w kraju deptak, przy którym mieszczą się liczne puby i galerie, a latem prezentują się uliczne teatry wędrowne i muzycy. 
           Ulica ma około 635 metrów długości i jest zamknięta dla ruchu samochodowego, co czyni z niej jeden z najsłynniejszych deptaków w Polsce.
@@ -105,7 +105,7 @@ const locations = [
       },
       {
         name: "Park Północny",
-        videoUrl: "https://www.youtube.com/watch?v=bJODWTvc8HY",
+        videoUrl: "https://www.youtube.com/embed/bJODWTvc8HY",
         description: `
           Park Północny w Sopocie rozciąga się od Grand Hotelu do potoku Swelinia, który stanowi granicę z Gdynią.
           W jego sąsiedztwie usytuowany jest budynek Teatru na Plaży, gdzie często odbywają się tu imprezy z dziedziny teatru, muzyki i filmu.
@@ -120,7 +120,7 @@ const locations = [
     places: [
       {
         name: "Westerplatte",
-        videoUrl: "https://www.youtube.com/watch?v=mpfcT4qxXms",
+        videoUrl: "https://www.youtube.com/embed/mpfcT4qxXms",
         description: `
           Od wieków Westerplatte pełniło punkt obronny dla Gdańska. 
           To tu kolejne armie budowały miejsca oporu przed najeźdźcą. 
@@ -132,7 +132,7 @@ const locations = [
       },
       {
         name: "Stogi - Plaża",
-        videoUrl: "https://www.youtube.com/watch?v=IR9pozkJRBY",
+        videoUrl: "https://www.youtube.com/embed/IR9pozkJRBY",
         description: `
           Plaża na Stogach jest jedną z najczystszych plaż w Trójmieście. 
           Jej długość to 4 km, w tym 400 m kąpieliska, a w niektórych miejscach jest szeroka nawet na 100 m.
@@ -143,7 +143,7 @@ const locations = [
       },
       {
         name: "Nowy Port - Latarnia Morska",
-        videoUrl: "https://www.youtube.com/watch?v=ZYvGDgvNNO8",
+        videoUrl: "https://www.youtube.com/embed/ZYvGDgvNNO8",
         description: `
           Latarnia morska w Nowym Porcie to budowla, która przez lata wskazywała statkom drogę do gdańskiego portu.
           Ośmiokątna wieża, zakończona galerią i laterną z miedzianą kopułą, sięga wysokości 27,3 metra.
@@ -153,7 +153,7 @@ const locations = [
       },
       {
         name: "Długi Targ",
-        videoUrl: "https://www.youtube.com/watch?v=LoNlZo8X5xI",
+        videoUrl: "https://www.youtube.com/embed/LoNlZo8X5xI",
         description: `
           Reprezentacyjny plac w Gdańsku, w dzielnicy Śródmieście, na Głównym Mieście.
           Pełni funkcję rynku, jest przedłużeniem ul. Długiej, z którą tworzy tzw. Drogę Królewską.
@@ -163,7 +163,7 @@ const locations = [
       },
       {
         name: "Park Oliwski - Potok Oliwski",
-        videoUrl: "https://www.youtube.com/watch?v=YtCptlTF4MQ",
+        videoUrl: "https://www.youtube.com/embed/YtCptlTF4MQ",
         description: `
           Potok Oliwski jest jednym z głównych cieków odwadniających obszar Lasów Oliwskich, który uchodzi do Zatoki Gdańskiej.
           Wzdłuż potoku funkcjonowały liczne urządzenia, obiekty zabudowy hydrotechnicznej: przegrody z przepustami, stawy, zbiorniki młyńskie, oraz urządzenia gospodarcze: młyny, kuźnie, folusze.
@@ -173,7 +173,7 @@ const locations = [
       },
       {
         name: "Park Oliwski - Pałac Opatów",
-        videoUrl: "https://www.youtube.com/watch?v=gGNjyCC--a4",
+        videoUrl: "https://www.youtube.com/embed/gGNjyCC--a4",
         description: `
           Zabytkowy pałac w Gdańsku Oliwie, umiejscowiony w Parku Oliwskim.
           Obecnie mieści się tam Oddział Sztuki Nowoczesnej Muzeum Narodowego w Gdańsku.
