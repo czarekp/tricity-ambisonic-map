@@ -9,6 +9,7 @@
         :zoom.sync="zoom"
         :center.sync="center"
         :rotation.sync="rotation"
+        ref="mapView"
       ></vl-view>
 
       <vl-layer-tile id="osm">
@@ -43,13 +44,27 @@ export default {
   props: {
     selectedLocation: Object
   },
+  watch: {
+    selectedLocation: {
+      handler(newLoc) {
+        if (newLoc !== null) {
+          this.$refs.mapView.animate(
+            { zoom: 17 },
+            { center: this.calculateNewCenter(newLoc.coordinates) }
+          );
+        }
+      }
+    }
+  },
   methods: {
     calculateCoordinates(latLonPoint) {
       return pointFromLonLat(latLonPoint);
     },
-    zoomAndCenter(coordinates) {
-      this.zoom = 20;
-      this.center = pointFromLonLat(coordinates);
+    calculateNewCenter(latLonPoint) {
+      const coordinates = this.calculateCoordinates(latLonPoint);
+      coordinates[0] -= 100;
+      coordinates[1] -= 50;
+      return coordinates;
     }
   }
 };
