@@ -4,6 +4,7 @@
       :load-tiles-while-animating="true"
       :load-tiles-while-interacting="true"
       style="width: 100%; height: 100%"
+      @click="compareClickPointWithAllLocationsCoordinates($event)"
     >
       <vl-view
         :zoom.sync="zoom"
@@ -19,9 +20,10 @@
       <template v-for="location in locations">
         <template v-for="place in location.places">
           <vl-feature :key="place.name">
-            <vl-geom-point
+            <vl-geom-circle
               :coordinates="calculateCoordinates(place.coordinates)"
-            ></vl-geom-point>
+              :radius="circleRadius"
+            ></vl-geom-circle>
           </vl-feature>
         </template>
       </template>
@@ -39,6 +41,7 @@ export default {
     zoom: 11,
     center: pointFromLonLat([18.62, 54.45]),
     rotation: 0,
+    circleRadius: 350,
     locations
   }),
   props: {
@@ -65,6 +68,23 @@ export default {
       coordinates[0] -= 100;
       coordinates[1] -= 50;
       return coordinates;
+    },
+    compareClickPointWithAllLocationsCoordinates(event) {
+      const clickPoint = event.coordinate;
+      let clickedLocation = null;
+      locations.forEach(city => {
+        city.places.forEach(place => {
+          const placePoint = this.calculateCoordinates(place.coordinates);
+          if (
+            clickPoint[0] > placePoint[0] - this.circleRadius &&
+            clickPoint[0] < placePoint[0] + this.circleRadius &&
+            clickPoint[1] > placePoint[1] - this.circleRadius &&
+            clickPoint[1] < placePoint[1] + this.circleRadius
+          )
+            clickedLocation = place;
+        });
+      });
+      this.$emit("selectedLocationChanged", clickedLocation);
     }
   }
 };
