@@ -14,17 +14,36 @@
       <vl-layer-tile id="osm">
         <vl-source-osm></vl-source-osm>
       </vl-layer-tile>
+
+      <template v-for="location in locations">
+        <template v-for="place in location.places">
+          <vl-feature :key="place.name">
+            <vl-geom-point
+              :coordinates="calculateCoordinates(place.coordinates)"
+            ></vl-geom-point>
+          </vl-feature>
+        </template>
+      </template>
     </vl-map>
   </v-container>
 </template>
 
 <script>
+import locations from "../locations";
+import { pointFromLonLat } from "vuelayers/lib/ol-ext";
+
 export default {
   name: "Map",
   data: () => ({
-    zoom: 2,
-    center: [0, 0],
-    rotation: 0
-  })
+    zoom: 11,
+    center: pointFromLonLat([18.62, 54.45]),
+    rotation: 0,
+    locations
+  }),
+  methods: {
+    calculateCoordinates(latLonPoint) {
+      return pointFromLonLat(latLonPoint);
+    }
+  }
 };
 </script>
