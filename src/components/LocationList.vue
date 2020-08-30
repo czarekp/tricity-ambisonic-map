@@ -1,10 +1,11 @@
-<template
-  ><v-navigation-drawer
+<template>
+  <v-navigation-drawer
     v-model="showList"
     class="pt-14"
     style="z-index: 1"
     fixed
     hide-overlay
+    stateless
   >
     <v-list>
       <v-subheader class="text-subtitle-1 font-weight-bold">
@@ -19,6 +20,7 @@
         <v-list-item
           v-for="(place, p) in location.places"
           :key="p"
+          @click="selectLocation(place)"
           class="text-subtitle-2 font-weight-regular"
         >
           {{ place.name }}
@@ -38,6 +40,11 @@ export default {
   }),
   props: {
     showList: Boolean
+  },
+  methods: {
+    selectLocation(location) {
+      this.$emit("selectedLocationChanged", location);
+    }
   }
 };
 </script>

@@ -40,9 +40,16 @@ export default {
     rotation: 0,
     locations
   }),
+  props: {
+    selectedLocation: Object
+  },
   methods: {
     calculateCoordinates(latLonPoint) {
       return pointFromLonLat(latLonPoint);
+    },
+    zoomAndCenter(coordinates) {
+      this.zoom = 20;
+      this.center = pointFromLonLat(coordinates);
     }
   }
 };
