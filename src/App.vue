@@ -1,37 +1,32 @@
 <template>
   <v-app>
-    <v-app-bar app color="primary" dark>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+    <v-app-bar style="z-index: 2" color="primary" app dark>
+      <v-app-bar-nav-icon @click.stop="toggleLocationList"></v-app-bar-nav-icon>
       <v-toolbar-title>Ambisoniczna mapa Trójmiasta</v-toolbar-title>
     </v-app-bar>
 
-    <v-main>
-      <v-navigation-drawer v-model="drawer" absolute width="30%">
-        <v-list>
-          <v-subheader>Lokalizacje</v-subheader>
-          <v-list-item-group>
-            <v-list-item v-for="(location, i) in locations" :key="i">
-              {{ location }}
-            </v-list-item>
-          </v-list-item-group>
-        </v-list>
-      </v-navigation-drawer>
-      <Map />
-    </v-main>
+    <LocationList :showList="showList" />
+    <Map />
   </v-app>
 </template>
 
 <script>
 import Map from "./components/Map";
+import LocationList from "./components/LocationList";
 
 export default {
   name: "App",
   data: () => ({
-    drawer: null,
-    locations: []
+    showList: true
   }),
+  methods: {
+    toggleLocationList() {
+      this.showList = !this.showList;
+    }
+  },
   components: {
-    Map
+    Map,
+    LocationList
   }
 };
 </script>
