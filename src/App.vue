@@ -11,7 +11,10 @@
       :showList="showList"
       @selectedLocationChanged="onSelectedLocationChanged($event)"
     />
-    <Map :selectedLocation="selectedLocation" />
+    <Map
+      :selectedLocation="selectedLocation"
+      @selectedLocationChanged="onSelectedLocationChanged($event)"
+    />
     <InfoSheet
       :showInfoSheet="showInfoSheet"
       :selectedLocation="selectedLocation"
