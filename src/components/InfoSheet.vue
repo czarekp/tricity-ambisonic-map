@@ -18,7 +18,11 @@
               {{ selectedLocation.description }}
             </v-card-text>
             <v-card-actions>
-              <a :href="selectedLocation.videoUrl" class="d-md-none">
+              <a
+                :href="selectedLocation.videoUrl"
+                target="_blank"
+                class="d-md-none"
+              >
                 <v-btn icon>
                   <v-icon>mdi-youtube</v-icon>
                 </v-btn>
