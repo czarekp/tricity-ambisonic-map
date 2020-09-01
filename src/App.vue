@@ -10,9 +10,11 @@
     <LocationList
       :showList="showList"
       @selectedLocationChanged="onSelectedLocationChanged($event)"
+      @selectedCityChanged="onSelectedCityChanged($event)"
     />
     <Map
       :selectedLocation="selectedLocation"
+      :selectedCity="selectedCity"
       @selectedLocationChanged="onSelectedLocationChanged($event)"
     />
     <InfoSheet
@@ -33,7 +35,8 @@ export default {
   data: () => ({
     showList: true,
     showInfoSheet: false,
-    selectedLocation: null
+    selectedLocation: null,
+    selectedCity: { city: "" }
   }),
   methods: {
     toggleLocationList() {
@@ -42,6 +45,9 @@ export default {
     onSelectedLocationChanged(location) {
       this.selectedLocation = location;
       this.showInfoSheet = !!location;
+    },
+    onSelectedCityChanged(city) {
+      this.selectedCity = city;
     },
     closeInfoSheet() {
       this.showInfoSheet = false;

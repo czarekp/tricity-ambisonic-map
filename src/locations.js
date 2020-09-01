@@ -1,6 +1,8 @@
 const locations = [
   {
     city: "Gdynia",
+    centerCoordinates: [18.540766, 54.505772],
+    zoomValue: 12.5,
     places: [
       {
         name: "Orłowo - Promenada",
@@ -80,6 +82,8 @@ const locations = [
   },
   {
     city: "Sopot",
+    centerCoordinates: [18.566851, 54.446544],
+    zoomValue: 15,
     places: [
       {
         name: "Molo",
@@ -117,6 +121,8 @@ const locations = [
   },
   {
     city: "Gdańsk",
+    centerCoordinates: [18.615224, 54.395095],
+    zoomValue: 12,
     places: [
       {
         name: "Westerplatte",
