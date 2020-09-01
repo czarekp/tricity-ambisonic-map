@@ -8,24 +8,28 @@
     stateless
   >
     <v-list>
-      <v-subheader class="text-subtitle-1 font-weight-bold">
+      <v-subheader class="text-subtitle-1 font-weight-bold black--text">
         Lokalizacje
       </v-subheader>
       <v-list-group
         v-for="(location, l) in locations"
         :key="l"
-        @click="selectCity(location)"
+        @change="selectCity(location)"
+        v-model="groupList[location.cityName]"
       >
         <template v-slot:activator>
-          <v-list-item-title class="font-weight-bold">
-            {{ location.city }}
+          <v-list-item-title class="font-weight-bold primary--text">
+            {{ location.cityName }}
           </v-list-item-title>
         </template>
         <v-list-item
           v-for="(place, p) in location.places"
           :key="p"
           @click="selectLocation(place)"
-          class="text-subtitle-2 font-weight-regular"
+          :class="[
+            isPlaceSelected(place) ? 'font-weight-bold' : 'font-weight-regular',
+            'text-subtitle-2'
+          ]"
         >
           {{ place.name }}
         </v-list-item>
@@ -40,17 +44,38 @@ import locations from "../locations";
 export default {
   name: "LocationList",
   data: () => ({
-    locations
+    locations,
+    groupList: {
+      Gdynia: false,
+      Sopot: false,
+      Gdańsk: false
+    }
   }),
   props: {
-    showList: Boolean
+    showList: Boolean,
+    selectedLocation: Object
+  },
+  watch: {
+    selectedLocation: {
+      handler(newValue) {
+        locations.forEach(city => {
+          this.groupList[city.cityName] = city.places.includes(newValue);
+        });
+      }
+    }
   },
   methods: {
     selectLocation(location) {
       this.$emit("selectedLocationChanged", location);
     },
     selectCity(city) {
-      this.$emit("selectedCityChanged", city);
+      this.$emit("selectedCityChanged", {
+        city,
+        isListActive: !this.groupList[city.cityName]
+      });
+    },
+    isPlaceSelected(place) {
+      return this.selectedLocation && place.name === this.selectedLocation.name;
     }
   }
 };

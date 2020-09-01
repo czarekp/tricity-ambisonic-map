@@ -9,6 +9,7 @@
 
     <LocationList
       :showList="showList"
+      :selectedLocation="selectedLocation"
       @selectedLocationChanged="onSelectedLocationChanged"
       @selectedCityChanged="onSelectedCityChanged"
     />
@@ -45,14 +46,19 @@ export default {
     },
     onSelectedLocationChanged(location) {
       this.selectedLocation = location;
-      if (location === null) {
-        this.showInfoSheet = false;
-        this.selectedCity = null;
-      }
+      this.$nextTick(() => {
+        if (location === null) {
+          this.showInfoSheet = false;
+          this.selectedCity = null;
+        }
+      });
     },
-    onSelectedCityChanged(city) {
-      this.selectedCity = city;
-      this.showInfoSheet = false;
+    onSelectedCityChanged(eventObj) {
+      this.selectedLocation = null;
+      this.$nextTick(() => {
+        this.selectedCity = eventObj.isListActive ? eventObj.city : null;
+        this.showInfoSheet = false;
+      });
     },
     openInfoSheet() {
       this.showInfoSheet = true;

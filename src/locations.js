@@ -1,51 +1,19 @@
 const locations = [
   {
-    city: "Gdynia",
+    cityName: "Gdynia",
     centerCoordinates: [18.540766, 54.505772],
     zoomValue: 12.5,
     places: [
       {
-        name: "Orłowo - Promenada",
-        videoUrl: "https://www.youtube.com/embed/vMSAmFI9i08",
+        name: "Port Gdynia",
+        videoUrl: "https://www.youtube.com/embed/VWvx6ufz02A",
         description: `
-          Promenada Królowej Marysieńki to nadmorski deptak w Gdyni-Orłowie ciągnący się od ulicy Przebendowskich do Orłowskiego mola. 
-          Roztacza się stąd wspaniały widok na Zatokę Gdańską, Klif Orłowski, a podczas dobrej pogody można podziwiać Półwysep Helski.
-          Na terenie promenady znajdują się liczne drzewa, krzewy oraz kwiaty. 
-          Jest tu wiele ławek, trawników na pikniki rodzinne, plac zabaw dla dzieci.
-          Warto tu się wybrać na rodzinny spacer.
+          Handlowy port morski nad Zatoką Gdańską, położony na Pobrzeżu Kaszubskim. 
+          Jest trzecim co do wielkości portem morskim w Polsce (po Gdańsku i Szczecinie).
+          Należy do Europejskiej Organizacji Portów Morskich. 
+          Materiał zarejestrowano podczas wypłynięcia promu Stena Line z Gdyni do Karlskrony. 
         `,
-        coordinates: [18.562761, 54.477822]
-      },
-      {
-        name: "Orłowo - Skwer Antoniego Suchanka",
-        videoUrl: "https://www.youtube.com/embed/CzChXgcIDbw",
-        description: `
-          Ławeczka Antoniego Suchanka znajduje się w Gdyni-Orłowie przy molo, na skwerze jego imienia. 
-          Została odsłonięta 31 maja 2009. Jej autorem jest rzeźbiarz gdyński Zdzisław Koseda.
-          Ławeczka przedstawia artystę siedzącego na ławce parkowej i pogrążonego w pracy. 
-          Obok niego na ławce leży kaseta z przyborami malarskimi.
-        `,
-        coordinates: [18.564038, 54.480681]
-      },
-      {
-        name: "Orłowo - Plaża",
-        videoUrl: "https://www.youtube.com/embed/h7XRcJNtP1g",
-        description: `
-          Plaża znana jest z ładnego widoku na Cypel Redłowski, znajduje się 15 min spacerem od dworca Gdynia Orłowo. 
-          Na szerokości 100 metrów do końca sierpnia plaża jest strzeżona, szerokość plaży to 30 m. 
-          Zaplecze turystyczne jest tutaj dość skromne, ale za to można kupić świeżo uwędzoną rybę prosto od rybaka. 
-        `,
-        coordinates: [18.565539, 54.482516]
-      },
-      {
-        name: "Orłowo - Molo",
-        videoUrl: "https://www.youtube.com/embed/gIeWFMgyFUM",
-        description: `
-          Drewniane molo znajdujące się w nadmorskiej, południowej dzielnicy Gdyni.
-          Nieopodal znajduje się Scena Letnia Teatru Miejskiego w Gdyni. 
-          Będąc na molo można podziwiać Klif Orłowski.
-        `,
-        coordinates: [18.566779, 54.479738]
+        coordinates: [18.547769, 54.534704]
       },
       {
         name: "Skwer Kościuszki",
@@ -68,23 +36,65 @@ const locations = [
         coordinates: [18.551318, 54.51256]
       },
       {
-        name: "Port Gdynia",
-        videoUrl: "https://www.youtube.com/embed/VWvx6ufz02A",
+        name: "Orłowo - Plaża",
+        videoUrl: "https://www.youtube.com/embed/h7XRcJNtP1g",
         description: `
-          Handlowy port morski nad Zatoką Gdańską, położony na Pobrzeżu Kaszubskim. 
-          Jest trzecim co do wielkości portem morskim w Polsce (po Gdańsku i Szczecinie).
-          Należy do Europejskiej Organizacji Portów Morskich. 
-          Materiał zarejestrowano podczas wypłynięcia promu Stena Line z Gdyni do Karlskrony. 
+          Plaża znana jest z ładnego widoku na Cypel Redłowski, znajduje się 15 min spacerem od dworca Gdynia Orłowo. 
+          Na szerokości 100 metrów do końca sierpnia plaża jest strzeżona, szerokość plaży to 30 m. 
+          Zaplecze turystyczne jest tutaj dość skromne, ale za to można kupić świeżo uwędzoną rybę prosto od rybaka. 
         `,
-        coordinates: [18.547769, 54.534704]
+        coordinates: [18.565539, 54.482516]
+      },
+      {
+        name: "Orłowo - Skwer Antoniego Suchanka",
+        videoUrl: "https://www.youtube.com/embed/CzChXgcIDbw",
+        description: `
+          Ławeczka Antoniego Suchanka znajduje się w Gdyni-Orłowie przy molo, na skwerze jego imienia. 
+          Została odsłonięta 31 maja 2009. Jej autorem jest rzeźbiarz gdyński Zdzisław Koseda.
+          Ławeczka przedstawia artystę siedzącego na ławce parkowej i pogrążonego w pracy. 
+          Obok niego na ławce leży kaseta z przyborami malarskimi.
+        `,
+        coordinates: [18.564038, 54.480681]
+      },
+      {
+        name: "Orłowo - Molo",
+        videoUrl: "https://www.youtube.com/embed/gIeWFMgyFUM",
+        description: `
+          Drewniane molo znajdujące się w nadmorskiej, południowej dzielnicy Gdyni.
+          Nieopodal znajduje się Scena Letnia Teatru Miejskiego w Gdyni. 
+          Będąc na molo można podziwiać Klif Orłowski.
+        `,
+        coordinates: [18.566779, 54.479738]
+      },
+      {
+        name: "Orłowo - Promenada",
+        videoUrl: "https://www.youtube.com/embed/vMSAmFI9i08",
+        description: `
+          Promenada Królowej Marysieńki to nadmorski deptak w Gdyni-Orłowie ciągnący się od ulicy Przebendowskich do Orłowskiego mola. 
+          Roztacza się stąd wspaniały widok na Zatokę Gdańską, Klif Orłowski, a podczas dobrej pogody można podziwiać Półwysep Helski.
+          Na terenie promenady znajdują się liczne drzewa, krzewy oraz kwiaty. 
+          Jest tu wiele ławek, trawników na pikniki rodzinne, plac zabaw dla dzieci.
+          Warto tu się wybrać na rodzinny spacer.
+        `,
+        coordinates: [18.562761, 54.477822]
       }
     ]
   },
   {
-    city: "Sopot",
+    cityName: "Sopot",
     centerCoordinates: [18.566851, 54.446544],
     zoomValue: 15,
     places: [
+      {
+        name: "Park Północny",
+        videoUrl: "https://www.youtube.com/embed/bJODWTvc8HY",
+        description: `
+          Park Północny w Sopocie rozciąga się od Grand Hotelu do potoku Swelinia, który stanowi granicę z Gdynią.
+          W jego sąsiedztwie usytuowany jest budynek Teatru na Plaży, gdzie często odbywają się tu imprezy z dziedziny teatru, muzyki i filmu.
+          Na terenie parku znajdują się dwa pomniki: Jerzego Haffnera - twórcy uzdrowiska w Sopocie oraz kamienna rzeźba zatytuowana "Pragnienie".
+        `,
+        coordinates: [18.566114, 54.449337]
+      },
       {
         name: "Molo",
         videoUrl: "https://www.youtube.com/embed/WXFOchbI0qg",
@@ -106,24 +116,45 @@ const locations = [
           Ulicę wieńczy niewielki plac z fontanną, który później przechodzi w molo.
         `,
         coordinates: [18.566958, 54.444098]
-      },
-      {
-        name: "Park Północny",
-        videoUrl: "https://www.youtube.com/embed/bJODWTvc8HY",
-        description: `
-          Park Północny w Sopocie rozciąga się od Grand Hotelu do potoku Swelinia, który stanowi granicę z Gdynią.
-          W jego sąsiedztwie usytuowany jest budynek Teatru na Plaży, gdzie często odbywają się tu imprezy z dziedziny teatru, muzyki i filmu.
-          Na terenie parku znajdują się dwa pomniki: Jerzego Haffnera - twórcy uzdrowiska w Sopocie oraz kamienna rzeźba zatytuowana "Pragnienie".
-        `,
-        coordinates: [18.566114, 54.449337]
       }
     ]
   },
   {
-    city: "Gdańsk",
+    cityName: "Gdańsk",
     centerCoordinates: [18.615224, 54.395095],
     zoomValue: 12,
     places: [
+      {
+        name: "Park Oliwski - Potok Oliwski",
+        videoUrl: "https://www.youtube.com/embed/YtCptlTF4MQ",
+        description: `
+          Potok Oliwski jest jednym z głównych cieków odwadniających obszar Lasów Oliwskich, który uchodzi do Zatoki Gdańskiej.
+          Wzdłuż potoku funkcjonowały liczne urządzenia, obiekty zabudowy hydrotechnicznej: przegrody z przepustami, stawy, zbiorniki młyńskie, oraz urządzenia gospodarcze: młyny, kuźnie, folusze.
+          W materiale przedstawiono wodospad po dawnym młynie VII, znajdujący się na terenie Parku Oliwskiego.
+        `,
+        coordinates: [18.561691, 54.411094]
+      },
+      {
+        name: "Park Oliwski - Pałac Opatów",
+        videoUrl: "https://www.youtube.com/embed/gGNjyCC--a4",
+        description: `
+          Zabytkowy pałac w Gdańsku Oliwie, umiejscowiony w Parku Oliwskim.
+          Obecnie mieści się tam Oddział Sztuki Nowoczesnej Muzeum Narodowego w Gdańsku.
+          Stała Galeria Polskiej Sztuki Nowoczesnej prezentuje około 400 dzieł najwybitniejszych artystów XIX i XX wieku.
+          Artyści, których dzieła prezentowane są w Galerii: Jan Matejko, Piotr Michałowski, Olga Boznańska, Jacek Malczewski, Stanisław Wyspiański, Wojciech Weiss.
+        `,
+        coordinates: [18.560225, 54.410508]
+      },
+      {
+        name: "Nowy Port - Latarnia Morska",
+        videoUrl: "https://www.youtube.com/embed/ZYvGDgvNNO8",
+        description: `
+          Latarnia morska w Nowym Porcie to budowla, która przez lata wskazywała statkom drogę do gdańskiego portu.
+          Ośmiokątna wieża, zakończona galerią i laterną z miedzianą kopułą, sięga wysokości 27,3 metra.
+          Obecnie jest to jedyna prywatna latarnia morska w Polsce, z której w sezonie od wiosny do jesieni można podziwiać widok na całą Zatokę Gdańską.
+        `,
+        coordinates: [18.661273, 54.407051]
+      },
       {
         name: "Westerplatte",
         videoUrl: "https://www.youtube.com/embed/mpfcT4qxXms",
@@ -148,16 +179,6 @@ const locations = [
         coordinates: [18.727846, 54.376199]
       },
       {
-        name: "Nowy Port - Latarnia Morska",
-        videoUrl: "https://www.youtube.com/embed/ZYvGDgvNNO8",
-        description: `
-          Latarnia morska w Nowym Porcie to budowla, która przez lata wskazywała statkom drogę do gdańskiego portu.
-          Ośmiokątna wieża, zakończona galerią i laterną z miedzianą kopułą, sięga wysokości 27,3 metra.
-          Obecnie jest to jedyna prywatna latarnia morska w Polsce, z której w sezonie od wiosny do jesieni można podziwiać widok na całą Zatokę Gdańską.
-        `,
-        coordinates: [18.661273, 54.407051]
-      },
-      {
         name: "Długi Targ",
         videoUrl: "https://www.youtube.com/embed/LoNlZo8X5xI",
         description: `
@@ -166,27 +187,6 @@ const locations = [
           Na Długim Targu znajdują się również liczne zabytki, w tym m.in.: Fontanna Neptuna, Dwór Artusa czy Brama Zielona.
         `,
         coordinates: [18.653879, 54.348381]
-      },
-      {
-        name: "Park Oliwski - Potok Oliwski",
-        videoUrl: "https://www.youtube.com/embed/YtCptlTF4MQ",
-        description: `
-          Potok Oliwski jest jednym z głównych cieków odwadniających obszar Lasów Oliwskich, który uchodzi do Zatoki Gdańskiej.
-          Wzdłuż potoku funkcjonowały liczne urządzenia, obiekty zabudowy hydrotechnicznej: przegrody z przepustami, stawy, zbiorniki młyńskie, oraz urządzenia gospodarcze: młyny, kuźnie, folusze.
-          W materiale przedstawiono wodospad po dawnym młynie VII, znajdujący się na terenie Parku Oliwskiego.
-        `,
-        coordinates: [18.561691, 54.411094]
-      },
-      {
-        name: "Park Oliwski - Pałac Opatów",
-        videoUrl: "https://www.youtube.com/embed/gGNjyCC--a4",
-        description: `
-          Zabytkowy pałac w Gdańsku Oliwie, umiejscowiony w Parku Oliwskim.
-          Obecnie mieści się tam Oddział Sztuki Nowoczesnej Muzeum Narodowego w Gdańsku.
-          Stała Galeria Polskiej Sztuki Nowoczesnej prezentuje około 400 dzieł najwybitniejszych artystów XIX i XX wieku.
-          Artyści, których dzieła prezentowane są w Galerii: Jan Matejko, Piotr Michałowski, Olga Boznańska, Jacek Malczewski, Stanisław Wyspiański, Wojciech Weiss.
-        `,
-        coordinates: [18.560225, 54.410508]
       }
     ]
   }
