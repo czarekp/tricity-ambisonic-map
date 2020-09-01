@@ -70,11 +70,15 @@
 import locations from "../locations";
 import { pointFromLonLat } from "vuelayers/lib/ol-ext";
 
+const initialMapSettings = {
+  zoom: 11.2,
+  center: pointFromLonLat([18.55, 54.455])
+};
+
 export default {
   name: "Map",
   data: () => ({
-    zoom: 11,
-    center: pointFromLonLat([18.55, 54.47]),
+    ...initialMapSettings,
     rotation: 0,
     locations
   }),
@@ -87,22 +91,22 @@ export default {
       handler(newValue) {
         const animation = newValue
           ? {
-              zoom: 17,
+              zoom: 16,
               center: this.calculateNewCenter(newValue.coordinates)
             }
-          : {
-              zoom: 11,
-              center: pointFromLonLat([18.55, 54.47])
-            };
-        this.$refs.mapView.animate(animation);
+          : initialMapSettings;
+        this.$refs.mapView.animate({ duration: 400, ...animation });
       }
     },
     selectedCity: {
       handler(newValue) {
-        this.$refs.mapView.animate({
-          zoom: newValue.zoomValue,
-          center: pointFromLonLat(newValue.centerCoordinates)
-        });
+        const animation = newValue
+          ? {
+              zoom: newValue.zoomValue,
+              center: pointFromLonLat(newValue.centerCoordinates)
+            }
+          : initialMapSettings;
+        this.$refs.mapView.animate({ duration: 400, ...animation });
       }
     }
   },
@@ -121,8 +125,8 @@ export default {
         event.pixel,
         feature => feature
       );
+      let clickedLocation = null;
       if (feature) {
-        let clickedLocation = null;
         locations.forEach(city => {
           city.places.forEach(place => {
             if (place.name === feature.id_) {
@@ -130,10 +134,8 @@ export default {
             }
           });
         });
-        this.$emit("selectedLocationChanged", clickedLocation);
-      } else {
-        this.$emit("selectedLocationChanged", null);
       }
+      this.$emit("selectedLocationChanged", clickedLocation);
     },
     openInfoSheet() {
       this.$emit("openInfoSheet");
