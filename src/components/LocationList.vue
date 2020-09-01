@@ -11,7 +11,11 @@
       <v-subheader class="text-subtitle-1 font-weight-bold">
         Lokalizacje
       </v-subheader>
-      <v-list-group v-for="(location, l) in locations" :key="l">
+      <v-list-group
+        v-for="(location, l) in locations"
+        :key="l"
+        @click="selectCity(location)"
+      >
         <template v-slot:activator>
           <v-list-item-title class="font-weight-bold">
             {{ location.city }}
@@ -44,6 +48,9 @@ export default {
   methods: {
     selectLocation(location) {
       this.$emit("selectedLocationChanged", location);
+    },
+    selectCity(city) {
+      this.$emit("selectedCityChanged", city);
     }
   }
 };

@@ -54,21 +54,30 @@ export default {
     locations
   }),
   props: {
-    selectedLocation: Object
+    selectedLocation: Object,
+    selectedCity: Object
   },
   watch: {
     selectedLocation: {
-      handler(newLoc) {
-        const animation = newLoc
+      handler(newValue) {
+        const animation = newValue
           ? {
               zoom: 17,
-              center: this.calculateNewCenter(newLoc.coordinates)
+              center: this.calculateNewCenter(newValue.coordinates)
             }
           : {
               zoom: 11,
               center: pointFromLonLat([18.55, 54.47])
             };
         this.$refs.mapView.animate(animation);
+      }
+    },
+    selectedCity: {
+      handler(newValue) {
+        this.$refs.mapView.animate({
+          zoom: newValue.zoomValue,
+          center: pointFromLonLat(newValue.centerCoordinates)
+        });
       }
     }
   },
