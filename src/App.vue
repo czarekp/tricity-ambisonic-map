@@ -47,10 +47,12 @@ export default {
       this.selectedLocation = location;
       if (location === null) {
         this.showInfoSheet = false;
+        this.selectedCity = null;
       }
     },
     onSelectedCityChanged(city) {
       this.selectedCity = city;
+      this.showInfoSheet = false;
     },
     openInfoSheet() {
       this.showInfoSheet = true;
