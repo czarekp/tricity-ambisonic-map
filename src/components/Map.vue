@@ -41,11 +41,11 @@
       <template v-if="selectedLocation !== null">
         <vl-overlay
           :id="selectedLocation.name"
-          :offset="[-100, -120]"
+          :offset="[-100, -100]"
           :position="calculateCoordinates(selectedLocation.coordinates)"
         >
           <v-card class="d-flex">
-            <v-card-title>
+            <v-card-title class="text-subtitle-2">
               {{ selectedLocation.name }}
             </v-card-title>
             <v-divider vertical></v-divider>
