@@ -4,7 +4,7 @@
       :load-tiles-while-animating="true"
       :load-tiles-while-interacting="true"
       style="width: 100%; height: 100%"
-      @click="compareClickPointWithAllLocationsCoordinates($event)"
+      @click="onMapClickHandler($event)"
     >
       <vl-view
         :zoom.sync="zoom"
@@ -17,16 +17,26 @@
         <vl-source-osm></vl-source-osm>
       </vl-layer-tile>
 
-      <template v-for="location in locations">
-        <template v-for="place in location.places">
-          <vl-feature :key="place.name">
-            <vl-geom-circle
-              :coordinates="calculateCoordinates(place.coordinates)"
-              :radius="circleRadius"
-            ></vl-geom-circle>
-          </vl-feature>
+      <vl-layer-vector>
+        <template v-for="location in locations">
+          <template v-for="place in location.places">
+            <vl-feature :key="place.name" :id="place.name">
+              <vl-geom-point
+                :coordinates="calculateCoordinates(place.coordinates)"
+              ></vl-geom-point>
+              <vl-style-box>
+                <vl-style-icon
+                  :anchor="[32, 64]"
+                  anchor-x-units="pixels"
+                  anchor-y-units="pixels"
+                  src="../assets/marker.png"
+                  :scale="0.6"
+                ></vl-style-icon>
+              </vl-style-box>
+            </vl-feature>
+          </template>
         </template>
-      </template>
+      </vl-layer-vector>
     </vl-map>
   </v-container>
 </template>
@@ -39,9 +49,8 @@ export default {
   name: "Map",
   data: () => ({
     zoom: 11,
-    center: pointFromLonLat([18.62, 54.45]),
+    center: pointFromLonLat([18.55, 54.47]),
     rotation: 0,
-    circleRadius: 350,
     locations
   }),
   props: {
@@ -69,22 +78,22 @@ export default {
       coordinates[1] -= 50;
       return coordinates;
     },
-    compareClickPointWithAllLocationsCoordinates(event) {
-      const clickPoint = event.coordinate;
-      let clickedLocation = null;
-      locations.forEach(city => {
-        city.places.forEach(place => {
-          const placePoint = this.calculateCoordinates(place.coordinates);
-          if (
-            clickPoint[0] > placePoint[0] - this.circleRadius &&
-            clickPoint[0] < placePoint[0] + this.circleRadius &&
-            clickPoint[1] > placePoint[1] - this.circleRadius &&
-            clickPoint[1] < placePoint[1] + this.circleRadius
-          )
-            clickedLocation = place;
+    onMapClickHandler(event) {
+      const feature = event.target.forEachFeatureAtPixel(
+        event.pixel,
+        feature => feature
+      );
+      if (feature) {
+        let clickedLocation = null;
+        locations.forEach(city => {
+          city.places.forEach(place => {
+            if (place.name === feature.id_) {
+              clickedLocation = place;
+            }
+          });
         });
-      });
-      this.$emit("selectedLocationChanged", clickedLocation);
+        this.$emit("selectedLocationChanged", clickedLocation);
+      }
     }
   }
 };
