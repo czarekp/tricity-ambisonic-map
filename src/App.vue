@@ -9,13 +9,14 @@
 
     <LocationList
       :showList="showList"
-      @selectedLocationChanged="onSelectedLocationChanged($event)"
-      @selectedCityChanged="onSelectedCityChanged($event)"
+      @selectedLocationChanged="onSelectedLocationChanged"
+      @selectedCityChanged="onSelectedCityChanged"
     />
     <Map
       :selectedLocation="selectedLocation"
       :selectedCity="selectedCity"
-      @selectedLocationChanged="onSelectedLocationChanged($event)"
+      @selectedLocationChanged="onSelectedLocationChanged"
+      @openInfoSheet="openInfoSheet"
     />
     <InfoSheet
       :showInfoSheet="showInfoSheet"
@@ -44,14 +45,18 @@ export default {
     },
     onSelectedLocationChanged(location) {
       this.selectedLocation = location;
-      this.showInfoSheet = !!location;
+      if (location === null) {
+        this.showInfoSheet = false;
+      }
     },
     onSelectedCityChanged(city) {
       this.selectedCity = city;
     },
+    openInfoSheet() {
+      this.showInfoSheet = true;
+    },
     closeInfoSheet() {
       this.showInfoSheet = false;
-      this.selectedLocation = null;
     }
   },
   components: {
@@ -61,3 +66,9 @@ export default {
   }
 };
 </script>
+
+<style>
+a {
+  text-decoration: none;
+}
+</style>

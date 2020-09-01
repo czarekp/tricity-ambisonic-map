@@ -4,7 +4,7 @@
       :load-tiles-while-animating="true"
       :load-tiles-while-interacting="true"
       style="width: 100%; height: 100%"
-      @click="onMapClickHandler($event)"
+      @click="onMapClickHandler"
     >
       <vl-view
         :zoom.sync="zoom"
@@ -37,6 +37,31 @@
           </template>
         </template>
       </vl-layer-vector>
+
+      <template v-if="selectedLocation !== null">
+        <vl-overlay
+          :id="selectedLocation.name"
+          :offset="[-100, -120]"
+          :position="calculateCoordinates(selectedLocation.coordinates)"
+        >
+          <v-card class="d-flex">
+            <v-card-title>
+              {{ selectedLocation.name }}
+            </v-card-title>
+            <v-divider vertical></v-divider>
+            <v-card-actions>
+              <a :href="selectedLocation.videoUrl" target="_blank">
+                <v-btn icon>
+                  <v-icon>mdi-youtube</v-icon>
+                </v-btn>
+              </a>
+              <v-btn icon @click="openInfoSheet">
+                <v-icon>mdi-information-outline</v-icon>
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </vl-overlay>
+      </template>
     </vl-map>
   </v-container>
 </template>
@@ -106,7 +131,12 @@ export default {
           });
         });
         this.$emit("selectedLocationChanged", clickedLocation);
+      } else {
+        this.$emit("selectedLocationChanged", null);
       }
+    },
+    openInfoSheet() {
+      this.$emit("openInfoSheet");
     }
   }
 };

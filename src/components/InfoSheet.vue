@@ -63,9 +63,6 @@ export default {
 </script>
 
 <style scoped>
-a {
-  text-decoration: none;
-}
 iframe {
   width: 100%;
   height: 100%;
