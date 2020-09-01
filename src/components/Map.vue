@@ -59,12 +59,16 @@ export default {
   watch: {
     selectedLocation: {
       handler(newLoc) {
-        if (newLoc !== null) {
-          this.$refs.mapView.animate(
-            { zoom: 17 },
-            { center: this.calculateNewCenter(newLoc.coordinates) }
-          );
-        }
+        const animation = newLoc
+          ? {
+              zoom: 17,
+              center: this.calculateNewCenter(newLoc.coordinates)
+            }
+          : {
+              zoom: 11,
+              center: pointFromLonLat([18.55, 54.47])
+            };
+        this.$refs.mapView.animate(animation);
       }
     }
   },

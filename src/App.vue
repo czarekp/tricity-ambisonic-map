@@ -45,6 +45,7 @@ export default {
     },
     closeInfoSheet() {
       this.showInfoSheet = false;
+      this.selectedLocation = null;
     }
   },
   components: {
