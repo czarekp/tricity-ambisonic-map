@@ -7,12 +7,33 @@
       </v-toolbar-title>
     </v-app-bar>
 
-    <LocationList
-      :showList="showList"
-      :selectedLocation="selectedLocation"
-      @selectedLocationChanged="onSelectedLocationChanged"
-      @selectedCityChanged="onSelectedCityChanged"
-    />
+    <v-navigation-drawer
+      v-model="showList"
+      class="pt-14 d-flex flex-column justify-space-between"
+      style="z-index: 1"
+      fixed
+      hide-overlay
+      stateless
+    >
+      <LocationList
+        :selectedLocation="selectedLocation"
+        @selectedLocationChanged="onSelectedLocationChanged"
+        @selectedCityChanged="onSelectedCityChanged"
+      />
+      <v-footer>
+        <a @click="openAboutDialog" class="text-caption mb-3 text">
+          O projekcie
+        </a>
+        <hr />
+        <p class="text-caption mx-auto mb-0 text-center">
+          Copyright &copy;2020
+          <br />
+          <a href="https://multimed.org/" target="_blank">
+            Katedra Systemów Multimedialnych
+          </a>
+        </p>
+      </v-footer>
+    </v-navigation-drawer>
     <Map
       :selectedLocation="selectedLocation"
       :selectedCity="selectedCity"
@@ -24,6 +45,10 @@
       :selectedLocation="selectedLocation"
       @closeInfoSheet="closeInfoSheet"
     />
+    <AboutDialog
+      :showDialog="showAboutDialog"
+      @closeAboutDialog="closeAboutDialog"
+    />
   </v-app>
 </template>
 
@@ -31,12 +56,14 @@
 import Map from "./components/Map";
 import LocationList from "./components/LocationList";
 import InfoSheet from "./components/InfoSheet";
+import AboutDialog from "./components/AboutDialog";
 
 export default {
   name: "App",
   data: () => ({
     showList: true,
     showInfoSheet: false,
+    showAboutDialog: true,
     selectedLocation: null,
     selectedCity: { city: "" }
   }),
@@ -65,9 +92,16 @@ export default {
     },
     closeInfoSheet() {
       this.showInfoSheet = false;
+    },
+    openAboutDialog() {
+      this.showAboutDialog = true;
+    },
+    closeAboutDialog() {
+      this.showAboutDialog = false;
     }
   },
   components: {
+    AboutDialog,
     InfoSheet,
     Map,
     LocationList
@@ -78,5 +112,14 @@ export default {
 <style>
 a {
   text-decoration: none;
+}
+html,
+body {
+  overflow: hidden;
+}
+.v-navigation-drawer__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 </style>
